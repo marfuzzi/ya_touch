@@ -177,8 +177,16 @@ body {
     background-color: #583319;
     border: 1px solid #F3E9E0;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, .4);
-
+    text-align: center;
+    line-height: 64px;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
     transition: background-color .3s;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .door-riddle__button_pressed {

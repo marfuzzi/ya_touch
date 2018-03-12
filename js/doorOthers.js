@@ -7,12 +7,13 @@
  */
 function Door0(number, onUnlock) {
     DoorBase.apply(this, arguments);
-
     var buttons = [
-        this.popup.querySelector('.door-riddle__button_0'),
-        this.popup.querySelector('.door-riddle__button_1'),
-        this.popup.querySelector('.door-riddle__button_2')
+        this.popup.querySelector('.door-riddle__button_r'),
+        this.popup.querySelector('.door-riddle__button_v'),
+        this.popup.querySelector('.door-riddle__button_q')
     ];
+
+    var code = ['q', 'r', 'v'];
 
     buttons.forEach(function(b) {
         b.addEventListener('pointerdown', _onButtonPointerDown.bind(this));
@@ -23,26 +24,22 @@ function Door0(number, onUnlock) {
 
     function _onButtonPointerDown(e) {
         e.target.classList.add('door-riddle__button_pressed');
-        checkCondition.apply(this);
+        if (e.target.classList.contains('door-riddle__button_'+code[0])) {
+            checkCondition.apply(this);
+        }
     }
 
     function _onButtonPointerUp(e) {
         e.target.classList.remove('door-riddle__button_pressed');
+        code = ['q', 'r', 'v'];
     }
 
     /**
      * Проверяем, можно ли теперь открыть дверь
      */
     function checkCondition() {
-        var isOpened = true;
-        buttons.forEach(function(b) {
-            if (!b.classList.contains('door-riddle__button_pressed')) {
-                isOpened = false;
-            }
-        });
-
-        // Если все три кнопки зажаты одновременно, то откроем эту дверь
-        if (isOpened) {
+        code.shift();
+        if (!code.length) {
             this.unlock();
         }
     }
