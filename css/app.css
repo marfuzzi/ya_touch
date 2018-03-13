@@ -192,3 +192,48 @@ body {
 .door-riddle__button_pressed {
     background-color: #F3E5D9;
 }
+
+.door-riddle__circle {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 64px;
+    border: 1px solid #F3E9E0;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, .4);
+    background-image: url('../img/spider.jpg');
+    background-size: cover;
+    transition: background-color .3s;
+    will-change: transform;
+    transition-property: left, top;
+    z-index: 1;
+}
+
+.door-riddle__circle.door-riddle__circle_pressed {
+    background-color: #F3E5D9;
+}
+
+.door-riddle__circle_0 {
+    top: 45px;
+    left: 45px;
+    z-index: 5;
+}
+
+.door-riddle__circle_1 {
+    top: 150px;
+    right: 10px;
+    z-index: 5;
+}
+
+.door-riddle__circle_2 {
+    bottom: 45px;
+    left: 45px;
+    z-index: 5;
+}
+
+.door-riddle__circle_destination {
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    background-image: url('../img/web.jpg');
+    background-size: cover;
+}
